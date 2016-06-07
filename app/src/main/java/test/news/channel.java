@@ -3,6 +3,7 @@ package test.news;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
+import org.simpleframework.xml.Path;
 import org.simpleframework.xml.Root;
 
 import java.util.LinkedList;
@@ -10,27 +11,27 @@ import java.util.LinkedList;
 /**
  * Created by dmytr on 03.06.2016.
  */
-@Root
-public class channel {
-    @Element
+@Root(strict=false,name="channel")
+public class Channel {
+    @Element(name = "title")
     private String title;
-    @Element
+    @Element(name = "link")
     private String link;
-    @Element
+    @Element(name = "description")
     private String description;
-    @Namespace(prefix="dc")
-    @Element
+    @Element(name = "creator")
+    @Namespace(prefix="dc",reference = "")
     private String creator;
-    @Element
+    @Element(name = "image")
     private Image image;
     @ElementList(inline=true)
-    private LinkedList<item> items;
+    private LinkedList<Item> items;
 
-    public LinkedList<item> getItems() {
+    public LinkedList<Item> getItems() {
         return items;
     }
 
-    public void setItems(LinkedList<item> items) {
+    public void setItems(LinkedList<Item> items) {
         this.items = items;
     }
 

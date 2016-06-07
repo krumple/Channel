@@ -2,11 +2,13 @@ package test.news;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Namespace;
+import org.simpleframework.xml.Root;
 
 /**
  * Created by dmytr on 03.06.2016.
  */
-public class item {
+@Root(name="item")
+public class Item {
     @Element
     private String title;
     @Element
@@ -17,11 +19,11 @@ public class item {
     private String pubDate;
     @Element
     private String guid;
-    @Namespace(prefix="dc")
     @Element
+    @Namespace(prefix="dc",reference = "")
     private String creator;
-    @Namespace(prefix="dc")
     @Element
+    @Namespace(prefix="dc",reference = "")
     private String date;
 
     public String getTitle() {

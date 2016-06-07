@@ -1,11 +1,12 @@
 package test.news;
 
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
 /**
  * Created by dmytr on 03.06.2016.
  */
-
+@Root
 public class Image {
     @Element
     private String title;
